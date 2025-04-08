@@ -31,6 +31,15 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.11.0</version>
         </plugin>
+         <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.2</version>
+          <configuration>
+            <argLine>
+              --add-opens SecurityService/security.service=ALL-UNNAMED
+            </argLine>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
