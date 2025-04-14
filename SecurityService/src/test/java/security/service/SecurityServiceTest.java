@@ -125,15 +125,18 @@ class SecurityServiceTest {
     @ParameterizedTest
     @EnumSource(value = ArmingStatus.class, names = {"ARMED_HOME", "ARMED_AWAY"})
     void shouldResetAllSensorsToInactiveWhenSystemArmed(ArmingStatus status) {
+        // Setup active sensor
         testSensor.setActive(true);
         Set<Sensor> sensors = new HashSet<>();
         sensors.add(testSensor);
         when(securityRepository.getSensors()).thenReturn(sensors);
+
+        // Arm the system
         securityService.setArmingStatus(status);
-        
-        // Verify sensor was deactivated
-        verify(securityRepository).updateSensor(testSensor);
+
+        // Verify all sensors are reset to inactive
         assertFalse(testSensor.getActive(), "Sensor should be inactive after system is armed");
+        verify(securityRepository).updateSensor(testSensor);
     }
 
     @Test

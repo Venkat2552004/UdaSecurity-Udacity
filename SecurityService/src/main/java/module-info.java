@@ -7,5 +7,5 @@ module SecurityService {
     requires transitive dev.mccue.guava.collect;
     requires transitive dev.mccue.guava.reflect;
     
-    opens security.data;
+    opens security.data to com.google.gson;
 }

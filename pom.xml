@@ -26,12 +26,15 @@
         <testSourceDirectory>SecurityService/src/test/java</testSourceDirectory> -->
     <pluginManagement>
       <plugins>
+        <!-- Compiler Plugin -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.11.0</version>
         </plugin>
+        <!-- Surefire Plugin -->
          <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.2.2</version>
           <configuration>
